@@ -2,6 +2,8 @@
 
 > Example setting from a Cypress test the initial data object in the application
 
+Read the blog post [Stub Objects By Passing Them Via Window Property](https://glebbahmutov.com/blog/stub-via-window/).
+
 ## Running the example
 
 ```
