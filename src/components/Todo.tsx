@@ -3,7 +3,7 @@ import remove from '../assets/icons/remove.svg'
 import { useAppDispatch } from '../store/hooks'
 import { removeTodo } from '../store/reducers/todosSlice'
 
-function Todo(props: { text: string; id: number }) {
+function Todo(props: { text: string; id: string }) {
   const dispatch = useAppDispatch()
 
   function removeHandler() {
