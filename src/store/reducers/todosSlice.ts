@@ -1,34 +1,34 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 interface todosState {
-  data: { text: string; id: number }[];
+  data: { text: string; id: string }[]
 }
 
 const initialState: todosState = {
   data: [],
-};
+}
 
 export const todosSlice = createSlice({
-  name: "todos",
+  name: 'todos',
   initialState,
   reducers: {
     addTodo(state, action) {
-      const text: string = action.payload;
-      let id = Math.random();
+      const text: string = action.payload
+      let id = Math.random().toString().slice(2, 10)
 
-      state.data = [{ text, id }, ...state.data];
+      state.data = [{ text, id }, ...state.data]
     },
     removeTodo(state, action) {
-      const id: number = action.payload;
+      const id: string = action.payload
 
       return {
         ...state,
         data: state.data.filter((todo) => todo.id !== id),
-      };
+      }
     },
   },
-});
+})
 
-export const { addTodo, removeTodo } = todosSlice.actions;
+export const { addTodo, removeTodo } = todosSlice.actions
 
-export default todosSlice.reducer;
+export default todosSlice.reducer

@@ -4,7 +4,14 @@ import Todos from './components/Todos'
 import { useAppSelector } from './store/hooks'
 
 function App() {
-  const pendingTasks = useAppSelector((state) => state.todos.data.length)
+  const todos = useAppSelector((state) => state.todos.data)
+  const pendingTasks = todos.length
+
+  // @ts-ignore
+  if (window.Cypress) {
+    // @ts-ignore
+    window.todos = todos
+  }
 
   return (
     <div className={style['container']}>
